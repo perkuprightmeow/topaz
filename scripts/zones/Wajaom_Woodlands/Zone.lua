@@ -25,10 +25,15 @@ end
 
 function onZoneIn(player, prevZone)
     local cs = -1
+    local serpentProgress = player:getCharVar("serpentProgress")
+    local sagaOfTheSkySerpent = player:getQuestStatus(AHT_URHGAN, tpz.quest.id.ahtUrhgan.SAGA_OF_THE_SKY_SERPENT)
+    local serpentCS = player:getCharVar("serpentCS")
     if player:getXPos() == 0 and player:getYPos() == 0 and player:getZPos() == 0 then
         if player:getCurrentMission(TOAU) == tpz.mission.id.toau.UNRAVELING_REASON then
             player:setPos(-200.036, -10, 79.948, 254)
             cs = 11
+        elseif (sagaOfTheSkySerpent == QUEST_ACCEPTED and serpentProgress == 2) then --Sky Serpent CS 1
+            cs = 12
         else
             player:setPos(610.542, -28.547, 356.247, 122)
         end
@@ -55,6 +60,12 @@ function onEventFinish(player, csid, option)
         player:setCharVar("threemenandaclosetCS", 3)
     elseif csid == 11 then
         player:startEvent(21)
+    elseif csid == 12 then
+        player:startEvent(13)
+    elseif csid == 13 then
+        player:setCharVar("serpentProgress", 3)
+        player:delKeyItem(tpz.ki.LILAC_RIBBON)
+        player:setPos(80, -6, -123, 125, 50)
     elseif csid == 21 then
         player:startEvent(22)
     elseif csid == 22 then

@@ -670,6 +670,7 @@ tpz.quest.id =
         MOMENT_OF_TRUTH                 = 30,
         THREE_MEN_AND_A_CLOSET          = 31, -- + --
         FIVE_SECONDS_OF_FAME            = 32,
+        SAGA_OF_THE_SKY_SERPENT         = 43,
         DELIVERING_THE_GOODS            = 61, -- + --
         VANISHING_ACT                   = 62, -- + --
         STRIKING_A_BALANCE              = 63,
